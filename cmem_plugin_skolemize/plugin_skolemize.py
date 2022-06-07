@@ -33,7 +33,7 @@ from cmem_plugin_base.dataintegration.entity import (
 )
 
 
-class CsvCombine(WorkflowPlugin):
+class SkolemizeGraph(WorkflowPlugin):
 
     def __init__(
         self,
