@@ -3,6 +3,7 @@ from uuid import uuid4
 from rdflib import Graph
 from os import remove
 from cmem.cmempy.dp.proxy.graph import get, post
+from cmem_plugin_base.dataintegration.utils import setup_cmempy_super_user_access
 from cmem_plugin_base.dataintegration.description import Plugin, PluginParameter
 from cmem_plugin_base.dataintegration.types import StringParameterType
 from cmem_plugin_base.dataintegration.plugins import WorkflowPlugin
@@ -46,6 +47,7 @@ class SkolemizeGraph(WorkflowPlugin):
             raise ValueError("Output graph IRI parameter is invalid.")
         self.input_graph_iri = input_graph_iri
         self.output_graph_iri = output_graph_iri
+        setup_cmempy_super_user_access()
 
 
     def get_graph(self, i):
