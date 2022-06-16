@@ -7,9 +7,9 @@ from cmem_plugin_base.dataintegration.utils import setup_cmempy_super_user_acces
 from cmem_plugin_base.dataintegration.description import Plugin, PluginParameter
 from cmem_plugin_base.dataintegration.types import StringParameterType
 from cmem_plugin_base.dataintegration.plugins import WorkflowPlugin
-from cmem_plugin_base.dataintegration.entity import (
-    Entities, Entity, EntitySchema, EntityPath,
-)
+#from cmem_plugin_base.dataintegration.entity import (
+#    Entities, Entity, EntitySchema, EntityPath,
+#)
 
 
 @Plugin(
@@ -49,7 +49,6 @@ class SkolemizeGraph(WorkflowPlugin):
         self.output_graph_iri = output_graph_iri
         setup_cmempy_super_user_access()
 
-
     def get_graph(self, i):
         g = Graph()
         g.parse(data=get(i).text, format="nt")
@@ -73,5 +72,3 @@ class SkolemizeGraph(WorkflowPlugin):
         skolemized_graph = self.skolemize(input_graph, output_graph)
         self.log.info("Posting skolemized graph.")
         self.post_graph(skolemized_graph)
-
-
