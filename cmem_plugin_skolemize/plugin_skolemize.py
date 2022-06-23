@@ -56,7 +56,7 @@ class SkolemizeGraph(WorkflowPlugin):
 
     def post_graph(self, skolemized_graph):
         temp_file = f"{uuid4()}.ttl"
-        skolemized_graph.serialize(temp_file, format="ttl")
+        skolemized_graph.serialize(temp_file, format="nt", encoding="utf-8")
         post(self.output_graph_iri, temp_file, replace=True)
         remove(temp_file)
 
